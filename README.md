@@ -1,29 +1,66 @@
-# Network Intrusion Detection using Decision Tree Classifie
+# Hierarchical vs Flat Machine Learning for Intrusion Detection
 
 ## Overview
-This project focuses on **network intrusion detection** using the **UNSW-NB15 dataset**. The primary goal is to classify network traffic as either **normal or an attack** by implementing a **Decision Tree Classifier**.
+This research project compares **Flat** and **Hierarchical** machine learning approaches for Intrusion Detection Systems (IDS) using the **UNSW-NB15 dataset**.
+
+We investigate whether decomposing attack detection into a two-stage pipeline improves:
+
+- Rare attack detection
+- Macro F1-score
+- Robustness under class imbalance
+- Overall system reliability
+
+---
+
+## 🎯 Research Question
+
+> Does a hierarchical classification framework outperform a flat multi-class classifier for intrusion detection?
+
+---
+
+## 🏗 Architecture
+
+### 🔵 Flat Model
+
+- Single multi-class classifier
+- Direct prediction of attack category
+- RandomForest + Optuna tuning
+- SMOTENC + Undersampling
+
+
+---
+
+### 🔴 Hierarchical Model
+
+#### Stage 1 — Binary Detection
+
+- XGBoost
+- Attack vs Normal
+- Class-weighted training
+- Threshold-based prediction (default = 0.3)
+
+
+---
+
+#### Stage 2 — Attack Refinement
+
+Triggered only if Stage 1 predicts **Attack**
+
+- Trained only on attack samples
+- RandomForest
+- Hyperparameter tuning via Optuna
+- Adaptive resampling (target_count)
+- SMOTENC balancing
+
 
 ## Technologies Used
 - **Python**
 - **Scikit-Learn**
+- **xgboot**
+- **imblearn**
 - **Pandas & NumPy**
 - **Matplotlib & Seaborn** (for visualization)
-- **GridSearchCV** (for hyperparameter tuning)
-- **Particle Swarm Optimization (PSO)** (for advanced optimization)
-
-## Key Features
-### 1. **Feature Engineering**
-- One-hot encoding for categorical data
-- Feature selection for improved model performance
-
-### 2. **Hyperparameter Optimization**
-- **GridSearchCV**: Exhaustive hyperparameter tuning
-- **Particle Swarm Optimization (PSO)**: Metaheuristic approach to refine parameters
-
-### 3. **Model Evaluation**
-- Accuracy score
-- Confusion matrix
-- Classification reports
+- **Optuna** (for advanced optimization)
 
 ## Results & Insights
 Through this project, I gained hands-on experience in **Machine Learning**, **feature engineering**, and **hyperparameter tuning**. The use of **PSO** provided an insightful comparison to traditional methods, demonstrating the potential of metaheuristic approaches in ML.
