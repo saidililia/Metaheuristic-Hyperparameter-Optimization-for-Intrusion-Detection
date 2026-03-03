@@ -12,15 +12,15 @@ We investigate whether decomposing attack detection into a two-stage pipeline im
 
 ---
 
-## 🎯 Research Question
+## Research Question
 
 > Does a hierarchical classification framework outperform a flat multi-class classifier for intrusion detection?
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
-### 🔵 Flat Model
+### Flat Model
 
 - Single multi-class classifier
 - Direct prediction of attack category
@@ -30,7 +30,7 @@ We investigate whether decomposing attack detection into a two-stage pipeline im
 
 ---
 
-### 🔴 Hierarchical Model
+### Hierarchical Model
 
 #### Stage 1 — Binary Detection
 
