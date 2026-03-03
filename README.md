@@ -1,4 +1,4 @@
-# Network Intrusion Detection using Decision Tree Classifier
+# Network Intrusion Detection using Decision Tree Classifie
 
 ## Overview
 This project focuses on **network intrusion detection** using the **UNSW-NB15 dataset**. The primary goal is to classify network traffic as either **normal or an attack** by implementing a **Decision Tree Classifier**.
